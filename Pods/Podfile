@@ -1,0 +1,44 @@
+workspace '../GlobBar.xcworkspace'
+project '../GlobBar.xcodeproj'
+
+platform :ios, '9.3'
+
+inhibit_all_warnings!
+use_frameworks!
+
+def mutual_pods
+    
+    #CI tools
+    pod 'Fabric'
+    pod 'Crashlytics'
+    
+    #infrastructure
+    pod 'ObjectMapper'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'RxDataSources'
+    pod 'RxCoreLocation'
+    
+    #social networks
+    pod 'FBSDKLoginKit'
+    
+    #networking
+    pod 'Alamofire'
+    
+    #UI
+    pod 'SWRevealViewController'
+    pod 'RadioButton'
+    pod 'MBCircularProgressBar'
+    pod 'AHKActionSheet'
+    pod 'FDTake'
+    
+    #Utilities
+    pod 'Kingfisher'
+    pod 'DateTools'
+    
+    
+end
+    
+target 'GlobBar' do
+    mutual_pods
+end

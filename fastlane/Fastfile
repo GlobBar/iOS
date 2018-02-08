@@ -1,0 +1,66 @@
+fastlane_version "1.105.0"
+
+default_platform :ios
+
+platform :ios do
+    
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    
+    ensure_git_status_clean
+    ensure_git_branch(
+                      branch: 'develop'
+                      )
+  end
+
+  lane :beta do |options|
+
+    version_number = 0
+    
+    ##parsing options
+	if options[:patch]
+        version_number = increment_version_number(bump_type: "patch")
+    else
+        version_number = increment_version_number(bump_type: "minor")
+	end
+    
+
+    ##building ipa
+    gym(scheme: "GlobBar",
+        configuration: "AdHoc",
+        export_method: "ad-hoc")
+
+    ###uploading to crashlytics
+    crashlytics(api_token: "82c158836446e1782926b5849781a90863cac483",
+                build_secret: "f68b6304259e2e2b8c7c90f354a5ff0d9ae45940a97061bb66f31e37575fe8d5",
+                notes: changelog_from_git_commits,
+                groups: "Basic")
+                    
+    ##cleaning up
+    File.delete("../GlobBar.ipa")
+    File.delete("../GlobBar.app.dSYM.zip")
+                    
+    ##notifying testers
+    slack( message: "New beta build is available. Check build details below or at your emails.",
+          
+          use_webhook_configured_username_and_icon: true,
+          payload: {
+          'Version number' => get_version_number,
+          'Download Link' => "https://apps.crashlytics.com/projects",
+          'Whats new' => changelog_from_git_commits
+          },
+          default_payloads: []
+          )
+          
+    ###keeping record
+    commit_version_bump(message: "Version bump to v#{version_number}")
+    add_git_tag tag: version_number
+    push_to_git_remote
+                          
+    ###notifying developer
+    notification(subtitle: "Finished lane", message: "Finished beta build lane succesfully")
+    
+    
+  end
+
+end
