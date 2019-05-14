@@ -35,7 +35,6 @@ class InvitationViewModel {
         invitationObservable(controller)
             .map { a in let b: String? = a; return b! }
             .bind(to: message)
-            
 .disposed(by: bag)
         
     }

@@ -1,7 +1,7 @@
 workspace '../GlobBar.xcworkspace'
 project '../GlobBar.xcodeproj'
 
-platform :ios, '9.3'
+platform :ios, '12.0'
 
 inhibit_all_warnings!
 use_frameworks!
@@ -35,7 +35,7 @@ def mutual_pods
     #Utilities
     pod 'Kingfisher'
     pod 'DateTools'
-    
+    pod 'AlamofireNetworkActivityLogger'
     
 end
     

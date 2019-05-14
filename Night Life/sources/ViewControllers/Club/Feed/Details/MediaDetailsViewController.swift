@@ -36,7 +36,6 @@ class MediaDetailsViewController : UIViewController {
         viewModel.mediaDriver
             .map { $0.mediaDescription }
             .drive(imageDescriptionLabel.rx.text)
-            
 .disposed(by: bag)
         
         if let postOwnerDirver = User.observableEntityByIdentifier(viewModel.media.postOwnerId)?.asDriver() {
@@ -45,13 +44,11 @@ class MediaDetailsViewController : UIViewController {
                 .filter { $0 != nil }.map { $0! }
                 .flatMapLatest { ImageRetreiver.imageForURLWithoutProgress($0) }
                 .drive(authorImageView.rx.image)
-                
-.disposed(by: bag)
+    .disposed(by: bag)
             
             postOwnerDirver.map { $0.username }
                 .drive(authorNameLabel.rx.text)
-                
-.disposed(by: bag)
+    .disposed(by: bag)
             
         }
         
@@ -70,23 +67,19 @@ class MediaDetailsViewController : UIViewController {
         viewModel.mediaDriver
             .map { !$0.isLikedByCurrentUser }
             .drive( likeButton.rx.isEnabled )
-            
 .disposed(by: bag)
         
         viewModel.likeProgressIndicator.asDriver()
             .drive(likeButton.rx.isHidden)
-            
 .disposed(by: bag)
         
         viewModel.likeProgressIndicator.asDriver()
             .drive(likeSpinner.rxex_animating)
-            
 .disposed(by: bag)
         
         viewModel.mediaDriver
             .map { "\($0.likesCount)" }
             .drive(likesCountLabel.rx.text)
-            
 .disposed(by: bag)
         
         if viewModel.canAlterMedia {
@@ -121,7 +114,6 @@ class MediaDetailsViewController : UIViewController {
         
         viewModel.shareButtonEnabled.asDriver()
             .drive(shareButton.rx.isEnabled)
-            
 .disposed(by: bag)
     }
     

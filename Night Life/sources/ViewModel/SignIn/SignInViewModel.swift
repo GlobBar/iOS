@@ -51,7 +51,6 @@ class SignInViewModel {
                 return 1
             }
             .bind(to: userLoggedInSignal)
-            
 .disposed(by: bag)
         
     }

@@ -97,6 +97,9 @@ extension MainRouter { ///Notification Routes
         case .newCheckin: fallthrough
         case .venueNews: break;
             
+        case .ballanceNews:
+            routClosure = self.newsRout
+            
         }
         
         if let message = verificationMessage { /// we need do present popup with message prior to rout
@@ -135,6 +138,12 @@ extension MainRouter { ///Notification Routes
         
     }
  
+    fileprivate func newsRout() {
+        
+        self.revealViewController().rearViewController.performSegue(withIdentifier: "messages", sender: nil)
+        
+    }
+    
     fileprivate func closeToVenueNotificationRout(_ clubId: Int, venueLocation: CLLocation) {
         
         guard let navigationController = revealViewController().frontViewController as? UINavigationController,

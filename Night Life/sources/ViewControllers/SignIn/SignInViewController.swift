@@ -52,7 +52,6 @@ class SignInViewController: UIViewController {
         Observable.combineLatest(emailValidation, passwordValidation)
         { $0 && $1}
             .bind(to: loginButton.rx.isEnabled)
-            
 .disposed(by: bag)
         
         loginButton.rx.tap.subscribe(onNext: { [unowned self] _ in

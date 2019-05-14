@@ -54,7 +54,6 @@ class CreateReportViewController : UIViewController {
         ///CLUB data binding
         ImageRetreiver.imageForURLWithoutProgress(viewModel.clubLogoImageURL)
             .drive(clubLogoImageView.rx.image)
-            
 .disposed(by: bag)
         
         clubNameLabel.text = viewModel.clubName
@@ -63,7 +62,6 @@ class CreateReportViewController : UIViewController {
         viewModel.questionStatusNumber.asObservable()
             .map{ "\($0)" }
             .bind(to: questionNumberLabel.rx.text)
-            
 .disposed(by: bag)
         
         self.title = "Bar Rating"

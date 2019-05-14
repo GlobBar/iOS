@@ -195,7 +195,6 @@ extension UsersListViewModel {
             }
             .catchError { Observable.just("Error performing request. Details: \($0)") }
             .bind(to: message)
-            
 .disposed(by: bag)
     }
 

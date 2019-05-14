@@ -37,7 +37,6 @@ class SignupViewController: UIViewController {
         
         viewModel.indicator.asDriver()
             .drive(spinner.rxex_animating)
-            
 .disposed(by: bag)
         
         viewModel.errorMessage.asObservable()
@@ -58,7 +57,6 @@ class SignupViewController: UIViewController {
              return e && u && p
             }
             .bind(to: signUpButton.rx.isEnabled)
-            
 .disposed(by: bag)
         
         signUpButton.rx.tap.subscribe(onNext: { [unowned self] _ in

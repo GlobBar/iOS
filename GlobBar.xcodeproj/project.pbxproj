@@ -1340,7 +1340,6 @@
 				7325A3A11C63AB01009FF07E /* Frameworks */,
 				7325A3A21C63AB01009FF07E /* Resources */,
 				16A24CA123F670B9DF6BE5FE /* [CP] Embed Pods Frameworks */,
-				A1EF55B681119130A8FDE97D /* [CP] Copy Pods Resources */,
 				736E30001C902BB800F51896 /* Integrate Fabric */,
 			);
 			buildRules = (
@@ -1382,6 +1381,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1466,9 +1466,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Pods/Target Support Files/Pods-GlobBar/Pods-GlobBar-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GlobBar/Pods-GlobBar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AHKActionSheet/AHKActionSheet.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
@@ -1489,6 +1490,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AHKActionSheet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
@@ -1507,7 +1509,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods/Target Support Files/Pods-GlobBar/Pods-GlobBar-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GlobBar/Pods-GlobBar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3E297E2010A8564644C1D65E /* [CP] Check Pods Manifest.lock */ = {
@@ -1541,21 +1543,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 82c158836446e1782926b5849781a90863cac483 f68b6304259e2e2b8c7c90f354a5ff0d9ae45940a97061bb66f31e37575fe8d5";
-		};
-		A1EF55B681119130A8FDE97D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods/Target Support Files/Pods-GlobBar/Pods-GlobBar-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1785,7 +1772,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Night Life/support_files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.partyzhere.NightLife;
 				PRODUCT_NAME = GlobBar;
@@ -1914,7 +1901,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Night Life/support_files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.partyzhere.NightLife;
@@ -1946,12 +1933,12 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Night Life/support_files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.partyzhere.NightLife;
 				PRODUCT_NAME = GlobBar;
-				PROVISIONING_PROFILE = "d4c646d0-185c-44d3-8a51-7922ca45fe87";
-				PROVISIONING_PROFILE_SPECIFIER = "NightLife AppStore";
+				PROVISIONING_PROFILE = "ca95cce3-ab69-48df-b831-c6a418e175ef";
+				PROVISIONING_PROFILE_SPECIFIER = "NighLife ad-hoc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Night Life/support_files/Night Life-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

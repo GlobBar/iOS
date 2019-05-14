@@ -26,6 +26,12 @@ struct User: UserProtocol, Storable {
 
     var relationType: RelationType? = nil
     
+    var balance: Int = 0
+    
+    var dollars: String {
+        return "$\(Double(balance) / 100) USD"
+    }
+    
     init(id: Int) {
         self.id = id
     }
@@ -44,6 +50,8 @@ struct User: UserProtocol, Storable {
         points <- map["points_count"]
         
         relationType <- map["current_relation"]
+        
+        balance <- map["balance"]
     }
     
 }

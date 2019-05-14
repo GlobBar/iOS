@@ -52,7 +52,6 @@ class UserListCell : UITableViewCell {
         nameLabel.text = viewModel.user.username
         ImageRetreiver.imageForURLWithoutProgress(viewModel.user.pictureURL!)
             .drive(avatarImageView.rx.image)
-            
 .disposed(by: bag)
         
         if viewModel.actions.contains(.acceptFollowRequest) {

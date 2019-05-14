@@ -55,7 +55,6 @@ struct MediaDetailsViewModel {
             m.playableContentURL.asObservable().map ({ $0 != nil }))
             .merge()
             .bind(to: shareButtonEnabled)
-            
 .disposed(by: bag)
         }
     }
@@ -151,7 +150,6 @@ struct MediaDetailsViewModel {
                 return Observable.just("Internal server error. Give this info to the devs it might be helpful: " + (er as NSError).description)
             }
             .bind(to: message)
-            
 .disposed(by: bag)
         
     }
@@ -173,7 +171,6 @@ struct MediaDetailsViewModel {
                 return .deletedMedia(media: self.media)
             }
             .bind(to: postAction)
-            
 .disposed(by: bag)
         
     }

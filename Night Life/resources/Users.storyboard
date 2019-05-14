@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="B0z-I7-miq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="B0z-I7-miq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -32,7 +33,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Rdy-9e-Yq7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WCW-rZ-aqM">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="i2G-kL-BSS">
@@ -203,6 +204,53 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JP-Uh-GU9">
+                                <rect key="frame" x="16" y="20" width="97" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9k-Sq-G8I">
+                                <rect key="frame" x="269" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="topUp:" destination="Uwz-If-upe" eventType="touchUpInside" id="IXg-gq-n7q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMU-4i-z7E">
+                                <rect key="frame" x="239" y="87" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Donate 5$"/>
+                                <connections>
+                                    <action selector="donate5:" destination="Uwz-If-upe" eventType="touchUpInside" id="nCd-sP-DGd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVg-mu-nUc">
+                                <rect key="frame" x="240" y="23" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Donate 1$"/>
+                                <connections>
+                                    <action selector="donate1:" destination="Uwz-If-upe" eventType="touchUpInside" id="w3O-Pu-cgx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNz-sV-rj2">
+                                <rect key="frame" x="239" y="58" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Donate 3$"/>
+                                <connections>
+                                    <action selector="donate3:" destination="Uwz-If-upe" eventType="touchUpInside" id="p2N-OK-THK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-LY-qRu">
+                                <rect key="frame" x="16" y="75" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cash out"/>
+                                <connections>
+                                    <action selector="cashOut:" destination="Uwz-If-upe" eventType="touchUpInside" id="jfU-aY-1xJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -254,6 +302,11 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="avatarImageView" destination="EGA-ZZ-u4a" id="zxQ-Hu-tSX"/>
+                        <outlet property="balanceLabel" destination="6JP-Uh-GU9" id="F0q-rN-mKM"/>
+                        <outlet property="cashOutButton" destination="fA9-LY-qRu" id="EGw-YQ-X3x"/>
+                        <outlet property="donate1Button" destination="cVg-mu-nUc" id="asq-U0-fgj"/>
+                        <outlet property="donate3Button" destination="dNz-sV-rj2" id="2ai-zw-6TZ"/>
+                        <outlet property="donate5Button" destination="EMU-4i-z7E" id="Ca2-ob-KvX"/>
                         <outlet property="editBarButtonItem" destination="eFc-Rc-rss" id="tYi-HB-aov"/>
                         <outlet property="editPhotoButton" destination="hgl-mD-REm" id="UC2-4I-g1u"/>
                         <outlet property="editUsernameButton" destination="pse-xe-8Il" id="ISY-eJ-RdK"/>
@@ -264,6 +317,7 @@
                         <outlet property="nameLabel" destination="c79-dj-QSF" id="10b-k6-Ur9"/>
                         <outlet property="pointsCountLabel" destination="yra-M9-iIx" id="135-yc-F7W"/>
                         <outlet property="saveBarButtonItem" destination="dtE-JS-2cs" id="AUt-bC-5mT"/>
+                        <outlet property="topUpButton" destination="A9k-Sq-G8I" id="OU8-uM-Zm2"/>
                         <outlet property="updateProgressBar" destination="AKO-3Y-SNx" id="h65-On-TYF"/>
                     </connections>
                 </viewController>
@@ -279,7 +333,7 @@
                     </connections>
                 </barButtonItem>
             </objects>
-            <point key="canvasLocation" x="161" y="136"/>
+            <point key="canvasLocation" x="160.80000000000001" y="135.38230884557723"/>
         </scene>
         <!--Reusable-->
         <scene sceneID="WZI-02-MUh">
@@ -294,7 +348,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B0z-I7-miq" customClass="AppNavigationController" customModule="GlobBar" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="u2B-fw-Isd" customClass="GradientBar" customModule="GlobBar" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.99266964197158813" green="0.63636791706085205" blue="0.068191073834896088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -328,7 +382,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XBV-X6-eVh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xks-RM-e73">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gUc-SR-1XC">
@@ -352,13 +406,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIV-0U-8qy">
-                                                    <rect key="frame" x="8" y="8" width="54" height="54"/>
+                                                    <rect key="frame" x="15" y="11" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="zIV-0U-8qy" secondAttribute="height" id="HWy-w2-SvX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQf-n1-cqu">
-                                                    <rect key="frame" x="70" y="26" width="37" height="18"/>
+                                                    <rect key="frame" x="71" y="26" width="36" height="18"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -523,7 +577,7 @@ No users were found...</string>
             <objects>
                 <navigationController storyboardIdentifier="UserListViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="52h-D9-u5L" customClass="AppNavigationController" customModule="GlobBar" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nNs-Ru-YwU">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.99266964197158813" green="0.63636791706085205" blue="0.068191073834896088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

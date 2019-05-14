@@ -57,7 +57,6 @@ class UserListViewController : UIViewController {
         
         viewModel.displayData
             .drive(tableView.rx.items(dataSource: dataSource))
-            
 .disposed(by: bag)
         
         let a = !viewModel.shouldDisplaySearchBar
@@ -70,7 +69,6 @@ class UserListViewController : UIViewController {
             .skip(1)///initial empty dataset
             .startWith(true)
             .drive(noResultsView.rx.isHidden)
-            
 .disposed(by: bag)
 
         viewModel.searchBarObservable.value = searchBar.rx.text.asObservable().notNil()

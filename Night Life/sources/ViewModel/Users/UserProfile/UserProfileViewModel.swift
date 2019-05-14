@@ -36,6 +36,11 @@ class UserProfileViewModel {
     var userDriver: Driver<User> {
         return userVariable.asDriver()
     }
+    
+    var ownProfile: Bool {
+        return userVariable.value == User.currentUser()!
+    }
+    
     let errorMessage: Variable<String?> = Variable(nil)
     
     var editingState: Variable<UserProfileEditingState> = Variable(.noEditing)
@@ -85,7 +90,6 @@ class UserProfileViewModel {
                 return user
             }
             .bind(to: userVariable)
-            
 .disposed(by: bag)
         
         ///image editing
@@ -99,7 +103,6 @@ class UserProfileViewModel {
                 return user
             }
             .bind(to: userVariable)
-            
 .disposed(by: bag)
         
         ////refreshing user info
@@ -118,7 +121,6 @@ class UserProfileViewModel {
                 return user
             }
             .bind(to: userVariable)
-            
 .disposed(by: bag)
         
         feedViewModel.dataProvider.value = UserProfileDataProvider(user: userDescriptor)
@@ -232,6 +234,78 @@ class UserProfileViewModel {
             .responseJSON { _ in
                 self.logoutAction()
             }
+    }
+    
+    func topUp() {
+        
+        ////refreshing user info
+        Alamofire.request(UserRouter.topUp(amount: 300))
+            .rx_Response(EmptyResponse.self)
+            .silentCatch(handler: handler)
+            .map { [unowned self] response -> User in
+                
+                var user = self.userVariable.value
+                user.balance += 300
+                return user
+                
+            }
+            .bind(to: userVariable)
+            .disposed(by: bag)
+        
+    }
+    
+    func donate(amount: Int) {
+        
+        guard User.currentUser()!.balance >= amount else {
+            handler?.presentErrorMessage(error: "Sorry, you only have \(User.currentUser()!.balance) left on your account")
+            return
+        }
+        
+        Alamofire.request(UserRouter.donate(user: userVariable.value,
+                                            amount: amount))
+            .rx_Response(EmptyResponse.self)
+            .silentCatch(handler: handler)
+            .map { [unowned self] response -> User in
+                
+                var cu = User.currentUser()!
+                cu.balance -= amount
+                cu.saveLocally()
+                
+                var user = self.userVariable.value
+                user.balance += Int( 0.95 * Double(amount) )
+                return user
+                
+            }
+            .bind(to: userVariable)
+            .disposed(by: bag)
+        
+    }
+    
+    func cashout(amount: Int, email: String) {
+        
+        guard User.currentUser()!.balance >= amount else {
+            handler?.presentErrorMessage(error: "Sorry, you only have \(User.currentUser()!.balance) left on your account")
+            return
+        }
+        
+        Alamofire.request(UserRouter.cashout(amount: amount, email: email))
+            .rx_Response(EmptyResponse.self)
+            .silentCatch(handler: handler)
+            .map { [weak self] response -> User in
+                
+                self?.handler?.presentMessage(message: DisplayMessage(title: "Success",
+                                                                      description: "You will receive a transfer shortly. We will notify you as soon as payment comes out"))
+                
+                var cu = User.currentUser()!
+                cu.balance -= amount
+                cu.saveLocally()
+                
+                return cu
+                
+            }
+            .bind(to: userVariable)
+            .disposed(by: bag)
+        
     }
     
 }

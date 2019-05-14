@@ -62,27 +62,22 @@ class CheckinViewController : UIViewController {
         
         showObservable
             .bind(to: chekinAffirmativeButton.rx.isHidden)
-            
 .disposed(by: bag)
         
         showObservable
             .bind(to: broadcastLocationButton.rx.isHidden)
-            
 .disposed(by: bag)
         
         hideObservable
             .bind(to: createReportButton.rx.isHidden)
-            
 .disposed(by: bag)
         
         hideObservable
             .bind(to: takePhotoButton.rx.isHidden)
-            
 .disposed(by: bag)
         
         hideObservable
             .bind(to: recordVideoButton.rx.isHidden)
-            
 .disposed(by: bag)
         
         hideObservable
@@ -97,14 +92,12 @@ class CheckinViewController : UIViewController {
         
         hideObservable
             .bind(to: checkinQuestionCheckmark.rx.isHidden)
-            
 .disposed(by: bag)
         
         ///loading spinner
         
         viewModel.loadingIndicator.asDriver()
             .drive(loadingSpinner.rxex_animating)
-            
 .disposed(by: bag)
         
         guard let observableClub = viewModel.club.observableEntity() else {
@@ -117,7 +110,6 @@ class CheckinViewController : UIViewController {
             .distinctUntilChanged()
             .flatMap{ ImageRetreiver.imageForURLWithoutProgress($0) }
             .drive(coverPhotoImageView.rx.image)
-            
 .disposed(by: bag)
         
         ///logo
@@ -126,35 +118,30 @@ class CheckinViewController : UIViewController {
             .distinctUntilChanged()
             .flatMap{ ImageRetreiver.imageForURLWithoutProgress($0) }
             .drive(logoImageView.rx.image)
-            
 .disposed(by: bag)
         
         ///name
         observableClub.asDriver()
             .map{ $0.name }
             .drive(clubNameLabel.rx.text)
-            
 .disposed(by: bag)
         
         ///addres
         observableClub.asDriver()
             .map{ $0.adress }
             .drive(clubAdressLabel.rx.text)
-            
 .disposed(by: bag)
 
         ///checkin count
         observableClub.asDriver()
             .map{ String($0.checkinsCount) }
             .drive(checkinsCountLabel.rx.text)
-            
 .disposed(by: bag)
         
         ///likes count
         observableClub.asDriver()
             .map{ String($0.likesCount) }
             .drive(likesCountLabel.rx.text)
-            
 .disposed(by: bag)
         
         ///last checked in users

@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.23</string>
+	<string>1.2.26</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -57,6 +57,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>graph.facebook.com</key>
@@ -100,13 +102,17 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>We&apos;ll let you take a photo</string>
+	<string>We'll let you take a photo</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>GlobBar needs your location to remind you to check in at venues to earn points.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>GlobBar needs your location to remind you to check in at venues to earn points.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>GlobBar needs your location to remind you to check in at venues to earn points.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We&apos;ll let you record video at your venue</string>
+	<string>We'll let you record video at your venue</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We&apos;ll use it in our network</string>
+	<string>We'll use it in our network</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>

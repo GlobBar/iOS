@@ -24,9 +24,9 @@ class NotificationManager {
         let notificationSettings = UIUserNotificationSettings( types: [.alert, .sound], categories: nil )
         UIApplication.shared.registerUserNotificationSettings(notificationSettings)
         
-        if UserDefaults.standard.object(forKey: deviceTokenKey) == nil {
+        //if UserDefaults.standard.object(forKey: deviceTokenKey) == nil {
             UIApplication.shared.registerForRemoteNotifications()
-        }
+        //}
         
         
         if let localNotification = launchOptions?[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification
@@ -91,9 +91,11 @@ enum NightlifeNotificationType {
     
     case nearClub(clubId: Int, location: CLLocation)
     
+    case ballanceNews
+    
     init?(type: Int, clubId: Int? = nil, location: CLLocation? = nil) {
         
-        guard 1...5 ~= type else { return nil }
+        guard 1...6 ~= type else { return nil }
         
         switch type {
             
@@ -113,6 +115,10 @@ enum NightlifeNotificationType {
         case 5:
             guard let id = clubId, let l = location else { return nil }
             self = .nearClub(clubId: id, location: l)
+            
+        case 6:
+            
+            self = .ballanceNews
             
         default:
             return nil

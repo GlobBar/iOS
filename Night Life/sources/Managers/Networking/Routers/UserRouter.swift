@@ -46,6 +46,10 @@ enum UserRouter : AuthorizedRouter {
     
     
     case sendTestPush
+    
+    case topUp(amount: Int)
+    case donate(user: User, amount: Int)
+    case cashout(amount: Int, email: String)
 }
 
 extension UserRouter {
@@ -99,6 +103,30 @@ extension UserRouter {
                                           encoding: URLEncoding.default,
                                           body: [:])
             
+        case .topUp(let amount):
+            
+            return authorizedRequest(.post,
+                                     path: "users/me/balance/",
+                                     encoding: URLEncoding.default,
+                                     body: ["balance_delta" : amount])
+            
+        case .donate(let user, let amount):
+            
+            return authorizedRequest(.post,
+                                     path: "/users/donate/",
+                                     encoding: URLEncoding.default,
+                                     body: ["amount" : amount,
+                                            "pk" : user.id])
+            
+        case .cashout(let amount, let email):
+            
+            return authorizedRequest(.post,
+                                     path: "/points/transactions/cashout/",
+                                     encoding: URLEncoding.default,
+                                     body: ["amount" : amount,
+                                            "email": email])
+            
+            
         case .update:
             
             return self.authorizedRequest(.post,
@@ -114,6 +142,8 @@ extension UserRouter {
                                           path: "users/\(user.id)",
                                           encoding: URLEncoding.default,
                                           body: [:])
+            
+            
             
         }
     }

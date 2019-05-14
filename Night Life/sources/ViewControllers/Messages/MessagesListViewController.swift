@@ -32,10 +32,6 @@ class MessagesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.displayData
-            .drive(tableView.rx.items(dataSource: dataSource))
-            .disposed(by: bag)
-    
         dataSource.canEditRowAtIndexPath = { _,_  in true }
         
         tableView.rx.itemDeleted
@@ -59,6 +55,10 @@ class MessagesListViewController: UIViewController {
         }
         )
 .disposed(by: bag)
+        
+        viewModel.displayData
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

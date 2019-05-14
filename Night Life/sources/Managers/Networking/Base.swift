@@ -26,7 +26,7 @@ struct GatewayConfiguration {
     
 //#else
     
-    static let hostName = "https://globbar.partyzhere.com"
+    static let hostName = "http://107.170.102.38:9000"
     
     static let clientId = "LZBcV40CXsWKedPwUEfYae81TIMKGZcPEzLUmfc4"
     static let clientSecret = "EqE4JoEnRBiO4Yslze9vrElueXvGURa9XqONMeObb2lh1COxgCWC5Q4X5J92ZyXHIFCgQJbzq3yWOVMCRrLj9nb6OJlS6eePyVsPW8ZaQTnBZ2BaEL7rGSyI1iMjxEJN"
