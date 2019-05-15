@@ -97,7 +97,6 @@
 		735240421C7226BA00A5FE23 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735240411C7226BA00A5FE23 /* Club.swift */; };
 		735659421E5AFCB600386AE2 /* LiveMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356593D1E5AFCB600386AE2 /* LiveMapViewModel.swift */; };
 		7356594B1E5AFCC400386AE2 /* LiveMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735659471E5AFCC400386AE2 /* LiveMapViewController.swift */; };
-		735659511E5B001500386AE2 /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735659501E5B001500386AE2 /* NSObject+Rx.swift */; };
 		735659541E5B010C00386AE2 /* MapAnnotationSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735659531E5B010C00386AE2 /* MapAnnotationSwift.swift */; };
 		7357A2511C8AF3E400B5B883 /* ReportDetailsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7357A2501C8AF3E400B5B883 /* ReportDetailsTableCell.swift */; };
 		7357A2531C8B00F400B5B883 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7357A2521C8B00F400B5B883 /* CheckButton.swift */; };
@@ -147,6 +146,13 @@
 		73B3368D1C9AFCD80009A146 /* LikedClubsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B3368C1C9AFCD80009A146 /* LikedClubsListViewController.swift */; };
 		73B6AE881CA160DB00411EB1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6AE871CA160DB00411EB1 /* UserViewModel.swift */; };
 		73B6AE8B1CA1660A00411EB1 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6AE8A1CA1660A00411EB1 /* UserListCell.swift */; };
+		73C02ABC228C655200A16B6E /* CashoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02AB9228C655200A16B6E /* CashoutRouter.swift */; };
+		73C02ABD228C655200A16B6E /* CashoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02ABA228C655200A16B6E /* CashoutViewController.swift */; };
+		73C02ABE228C655200A16B6E /* CashoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02ABB228C655200A16B6E /* CashoutViewModel.swift */; };
+		73C02AC2228C681D00A16B6E /* AnimationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02AC1228C681D00A16B6E /* AnimationStatus.swift */; };
+		73C02AC4228C682F00A16B6E /* UIView+ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02AC3228C682F00A16B6E /* UIView+ProgressIndicator.swift */; };
+		73C02AC6228C684100A16B6E /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02AC5228C684000A16B6E /* SpinnerView.swift */; };
+		73C02AC8228C68E600A16B6E /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C02AC7228C68E600A16B6E /* NSObject+Rx.swift */; };
 		73C04D931CA009090072C00A /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C04D921CA009090072C00A /* UserProfileViewController.swift */; };
 		73C04D951CA0093C0072C00A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C04D941CA0093C0072C00A /* UserListViewController.swift */; };
 		73C04D981CA00A150072C00A /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C04D971CA00A150072C00A /* UsersListViewModel.swift */; };
@@ -298,7 +304,6 @@
 		735240411C7226BA00A5FE23 /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		7356593D1E5AFCB600386AE2 /* LiveMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveMapViewModel.swift; sourceTree = "<group>"; };
 		735659471E5AFCC400386AE2 /* LiveMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveMapViewController.swift; sourceTree = "<group>"; };
-		735659501E5B001500386AE2 /* NSObject+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
 		735659531E5B010C00386AE2 /* MapAnnotationSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationSwift.swift; sourceTree = "<group>"; };
 		7357A2501C8AF3E400B5B883 /* ReportDetailsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailsTableCell.swift; sourceTree = "<group>"; };
 		7357A2521C8B00F400B5B883 /* CheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
@@ -347,6 +352,13 @@
 		73B3368C1C9AFCD80009A146 /* LikedClubsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedClubsListViewController.swift; sourceTree = "<group>"; };
 		73B6AE871CA160DB00411EB1 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		73B6AE8A1CA1660A00411EB1 /* UserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		73C02AB9228C655200A16B6E /* CashoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashoutRouter.swift; sourceTree = "<group>"; };
+		73C02ABA228C655200A16B6E /* CashoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashoutViewController.swift; sourceTree = "<group>"; };
+		73C02ABB228C655200A16B6E /* CashoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashoutViewModel.swift; sourceTree = "<group>"; };
+		73C02AC1228C681D00A16B6E /* AnimationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationStatus.swift; sourceTree = "<group>"; };
+		73C02AC3228C682F00A16B6E /* UIView+ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ProgressIndicator.swift"; sourceTree = "<group>"; };
+		73C02AC5228C684000A16B6E /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		73C02AC7228C68E600A16B6E /* NSObject+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
 		73C04D921CA009090072C00A /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		73C04D941CA0093C0072C00A /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		73C04D971CA00A150072C00A /* UsersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
@@ -905,7 +917,6 @@
 		7356594F1E5B001500386AE2 /* NSObject+Rx */ = {
 			isa = PBXGroup;
 			children = (
-				735659501E5B001500386AE2 /* NSObject+Rx.swift */,
 			);
 			path = "NSObject+Rx";
 			sourceTree = "<group>";
@@ -938,6 +949,10 @@
 		736B6F4A1EDDAC9000D11233 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				73C02AC7228C68E600A16B6E /* NSObject+Rx.swift */,
+				73C02AC5228C684000A16B6E /* SpinnerView.swift */,
+				73C02AC3228C682F00A16B6E /* UIView+ProgressIndicator.swift */,
+				73C02AC1228C681D00A16B6E /* AnimationStatus.swift */,
 				736B6F4E1EDDACC900D11233 /* Validation */,
 			);
 			path = Tools;
@@ -1113,9 +1128,20 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		73C02AB8228C654300A16B6E /* Cashout */ = {
+			isa = PBXGroup;
+			children = (
+				73C02AB9228C655200A16B6E /* CashoutRouter.swift */,
+				73C02ABA228C655200A16B6E /* CashoutViewController.swift */,
+				73C02ABB228C655200A16B6E /* CashoutViewModel.swift */,
+			);
+			path = Cashout;
+			sourceTree = "<group>";
+		};
 		73C04D911CA009090072C00A /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				73C02AB8228C654300A16B6E /* Cashout */,
 				73C04D921CA009090072C00A /* UserProfileViewController.swift */,
 				73C04D941CA0093C0072C00A /* UserListViewController.swift */,
 			);
@@ -1485,6 +1511,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1506,6 +1533,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1557,6 +1585,7 @@
 				7305E0281CAADFAB00ED4F11 /* AppNavigationController.swift in Sources */,
 				7332FE681C80860E001FE7D5 /* SideViewController.swift in Sources */,
 				733FA1161C7B70B600DBA588 /* LocationManager.swift in Sources */,
+				73C02AC6228C684100A16B6E /* SpinnerView.swift in Sources */,
 				7323E4851C88522700F397BC /* ReportDetailsViewController.swift in Sources */,
 				73672B7F1ECD97CA002E085E /* PresentMessage.swift in Sources */,
 				7323E4811C8851F000F397BC /* CreateReport.swift in Sources */,
@@ -1566,6 +1595,7 @@
 				7332FE731C80D24B001FE7D5 /* FeedDisplayableRouter.swift in Sources */,
 				73069CCF1CB7BBD30040D599 /* MediaItem.swift in Sources */,
 				738AA0211C73346B00379C75 /* Authenticator.swift in Sources */,
+				73C02ABC228C655200A16B6E /* CashoutRouter.swift in Sources */,
 				73E676C31CB56E98004B22D2 /* AccessToken.swift in Sources */,
 				733FA1181C7C5DED00DBA588 /* PlacesRouter.swift in Sources */,
 				733E36801C7488220099BA9A /* RadioButtonGroup.swift in Sources */,
@@ -1576,7 +1606,6 @@
 				7357A2511C8AF3E400B5B883 /* ReportDetailsTableCell.swift in Sources */,
 				738AA0251C73346B00379C75 /* InstagramLoginViewController.swift in Sources */,
 				73F70D031CA18A73005C6CB1 /* RelationRouter.swift in Sources */,
-				735659511E5B001500386AE2 /* NSObject+Rx.swift in Sources */,
 				7325A3C91C63AC49009FF07E /* AppDelegate.swift in Sources */,
 				73C04D931CA009090072C00A /* UserProfileViewController.swift in Sources */,
 				7329BC671C7745AA00D7512F /* ReviewReportCollectionCell.swift in Sources */,
@@ -1590,6 +1619,7 @@
 				735240121C6E22C200A5FE23 /* ViewIndicator.swift in Sources */,
 				73C126CA1C89D73B005CBC6E /* FeedDisplayable.swift in Sources */,
 				73F9E2BF1CAD3E0F005758D1 /* NSData+hexString.swift in Sources */,
+				73C02AC2228C681D00A16B6E /* AnimationStatus.swift in Sources */,
 				73A6A03B1CC3B089008594F2 /* InvitationViewModel.swift in Sources */,
 				738AA0221C73346B00379C75 /* FacebookAuthenticator.swift in Sources */,
 				7362A9E21CB510AE00428350 /* InMemmoryStore.swift in Sources */,
@@ -1615,6 +1645,7 @@
 				73EF22231C9C594F005A6D6D /* ClubListViewModel.swift in Sources */,
 				738F8AAB1C9866E40062E916 /* MainAppController.swift in Sources */,
 				73205E691C89CACF0057B089 /* CircularIconsGroupView.swift in Sources */,
+				73C02AC4228C682F00A16B6E /* UIView+ProgressIndicator.swift in Sources */,
 				7332FE471C80656F001FE7D5 /* ViewController+ErrorMessage.swift in Sources */,
 				738F8AAD1C986A0B0062E916 /* CityContext.swift in Sources */,
 				843907581CB6AA9900C05D8B /* MessageRouter.swift in Sources */,
@@ -1642,6 +1673,7 @@
 				7323E4891C886F1700F397BC /* GradientBar.swift in Sources */,
 				736B6F5B1EDF035B00D11233 /* RelationshipManager.swift in Sources */,
 				730FF0461C7B561D00403C57 /* UIColor+hex.swift in Sources */,
+				73C02AC8228C68E600A16B6E /* NSObject+Rx.swift in Sources */,
 				73B12E5D1CC8DF8B00F6F6F6 /* UserProfileFollowingViewModel.swift in Sources */,
 				84535EC21CE4A03D009CC66E /* SignupViewController.swift in Sources */,
 				736B6F5E1EDF03E800D11233 /* RequestsCountMapping.swift in Sources */,
@@ -1650,8 +1682,10 @@
 				73672B7D1ECD9447002E085E /* CatchError.swift in Sources */,
 				840748E21CB2B44C00F1CB41 /* PointsRouter.swift in Sources */,
 				7323E46B1C87474900F397BC /* UICollectionView+NextPageTrigger.swift in Sources */,
+				73C02ABD228C655200A16B6E /* CashoutViewController.swift in Sources */,
 				7329BC661C7745AA00D7512F /* ReviewMediaCollectionCell.swift in Sources */,
 				73EF221E1C9C594F005A6D6D /* ClubFeedViewModel.swift in Sources */,
+				73C02ABE228C655200A16B6E /* CashoutViewModel.swift in Sources */,
 				73EF22011C9C5743005A6D6D /* CityFeedViewController.swift in Sources */,
 				7357A2531C8B00F400B5B883 /* CheckButton.swift in Sources */,
 				73ED78A61C9C0B08002EBAA2 /* ClubDescriptors.swift in Sources */,

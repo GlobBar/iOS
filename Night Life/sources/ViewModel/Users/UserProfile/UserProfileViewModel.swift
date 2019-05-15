@@ -281,33 +281,6 @@ class UserProfileViewModel {
         
     }
     
-    func cashout(amount: Int, email: String) {
-        
-        guard User.currentUser()!.balance >= amount else {
-            handler?.presentErrorMessage(error: "Sorry, you only have \(User.currentUser()!.balance) left on your account")
-            return
-        }
-        
-        Alamofire.request(UserRouter.cashout(amount: amount, email: email))
-            .rx_Response(EmptyResponse.self)
-            .silentCatch(handler: handler)
-            .map { [weak self] response -> User in
-                
-                self?.handler?.presentMessage(message: DisplayMessage(title: "Success",
-                                                                      description: "You will receive a transfer shortly. We will notify you as soon as payment comes out"))
-                
-                var cu = User.currentUser()!
-                cu.balance -= amount
-                cu.saveLocally()
-                
-                return cu
-                
-            }
-            .bind(to: userVariable)
-            .disposed(by: bag)
-        
-    }
-    
 }
 
 class UserProfileDataProvider: FeedDataProvider {

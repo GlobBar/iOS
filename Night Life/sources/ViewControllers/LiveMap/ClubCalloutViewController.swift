@@ -19,7 +19,7 @@ class ClubCalloutViewController: UIViewController {
         
         viewModel.title.asDriver()
             .drive(titleLabel.rx.text)
-            .disposed(by: rx_disposeBag)
+            .disposed(by: rx.disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

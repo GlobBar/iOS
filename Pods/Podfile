@@ -31,6 +31,7 @@ def mutual_pods
     pod 'MBCircularProgressBar'
     pod 'AHKActionSheet'
     pod 'FDTake'
+    pod 'SnapKit'
     
     #Utilities
     pod 'Kingfisher'

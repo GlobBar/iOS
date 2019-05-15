@@ -38,7 +38,7 @@ class LiveMapViewController : UIViewController {
                 self.mapView.setRegion(region, animated: true)
                 
             })
-            .disposed(by: rx_disposeBag)
+            .disposed(by: rx.disposeBag)
     
         viewModel.annotations
             .drive(onNext: { [unowned self] (annotations) in
@@ -51,7 +51,7 @@ class LiveMapViewController : UIViewController {
                 self.mapView.addAnnotations(annotations)
                 
             })
-            .disposed(by: rx_disposeBag)
+            .disposed(by: rx.disposeBag)
     
         viewModel.presentVenue
             .subscribe(onNext: { [unowned self] (clubViewModel) in
@@ -62,7 +62,7 @@ class LiveMapViewController : UIViewController {
                 self.navigationController?.pushViewController(controller, animated: true)
                 
             })
-            .disposed(by: rx_disposeBag)
+            .disposed(by: rx.disposeBag)
         
         
 //        viewModel.presentHotspotTrigger.asDriver()

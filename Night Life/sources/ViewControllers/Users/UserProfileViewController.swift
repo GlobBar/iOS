@@ -22,7 +22,6 @@ class UserProfileViewController : UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var pointsCountLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var logoutButton: UIButton!
@@ -38,13 +37,8 @@ class UserProfileViewController : UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
     
-    @IBOutlet weak var topUpButton: UIButton!
-    
-    @IBOutlet weak var donate1Button: UIButton!
-    @IBOutlet weak var donate3Button: UIButton!
-    @IBOutlet weak var donate5Button: UIButton!
-    
     @IBOutlet weak var cashOutButton: UIButton!
+    @IBOutlet weak var tippingJar: UIButton!
     
     let bag = DisposeBag()
 
@@ -140,11 +134,6 @@ class UserProfileViewController : UIViewController {
             .drive( followingCountLabel.rx.text )
 .disposed(by: bag)
         
-        viewModel.userDriver
-            .map { "\($0.points ?? 0)" }
-            .drive( pointsCountLabel.rx.text )
-.disposed(by: bag)
-
         viewModel.errorMessage.asObservable()
             .filter { $0 != nil }.map { $0! }
             .subscribe(onNext: { [unowned self] text in
@@ -184,10 +173,7 @@ class UserProfileViewController : UIViewController {
             )
 .disposed(by: bag)
         
-        topUpButton.isHidden = !viewModel.ownProfile
-        donate1Button.isHidden = viewModel.ownProfile
-        donate3Button.isHidden = viewModel.ownProfile
-        donate5Button.isHidden = viewModel.ownProfile
+        tippingJar.isHidden = viewModel.ownProfile
         cashOutButton.isHidden = !viewModel.ownProfile
         balanceLabel.isHidden = !viewModel.ownProfile
     }
@@ -218,21 +204,19 @@ class UserProfileViewController : UIViewController {
         viewModel.followingViewModel.performAction()
     }
     
+    @IBAction func tipAction(_ sender: Any) {
+        return
+//        viewModel.topUp()
+//        viewModel.donate(amount: 100)
+//        viewModel.donate(amount: 300)
+//        viewModel.donate(amount: 500)
+    }
+    
     @IBAction func cashOut(_ sender: Any) {
         
-        let _ =
-        presentTextQuestion(question: DisplayMessage(title: "Enter amount",
-                                                     description: "How much do you want to cash out?"))
-            .flatMapLatest { [unowned self] (amountString) in
-                return self.presentTextQuestion(question: DisplayMessage(title: "Where to?",
-                                                                         description: "Enter your paypal account email"))
-                    .map { (amountString, $0) }
-            }
-            .take(1)
-            .subscribe(onNext: { [unowned self] (amountString, email) in
-                self.viewModel.cashout(amount: (Int(amountString) ?? 0) * 100, email: email)
-            })
-        
+        let x = self.storyboard!.instantiateViewController(withIdentifier: "CashoutViewController") as! CashoutViewController
+        x.viewModel = CashoutViewModel(router: CashoutRouter(owner: x))
+        self.present(x, animated: true, completion: nil)
         
     }
     
@@ -240,22 +224,6 @@ class UserProfileViewController : UIViewController {
         self.showSimpleQuestionMessage(withTitle: "Delete profile", "Your profile, feed posts, reports and other information will be deleted. Are you sure?", {
                 self.viewModel.deleteProfile()
             })
-    }
-    
-    @IBAction func topUp(_ sender: Any) {
-        viewModel.topUp()
-    }
-    
-    @IBAction func donate1(_ sender: Any) {
-        viewModel.donate(amount: 100)
-    }
-    
-    @IBAction func donate3(_ sender: Any) {
-        viewModel.donate(amount: 300)
-    }
-    
-    @IBAction func donate5(_ sender: Any) {
-        viewModel.donate(amount: 500)
     }
     
 }
