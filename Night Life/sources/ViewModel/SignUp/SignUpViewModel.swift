@@ -16,6 +16,8 @@ class SignUpViewModel {
     fileprivate let bag = DisposeBag()
     let indicator = ViewIndicator()
     
+    let userTypeSelected: Variable<User.ProfileType> = Variable(.fan)
+    
     let userLoggedInSignal: Variable<Int?> = Variable(nil)
     
     let errorMessage: Variable<String?> = Variable(nil)
@@ -24,9 +26,20 @@ class SignUpViewModel {
     
     func signUpAction(_ email: String, username: String, password: String) {
         
+        let profileType = userTypeSelected.value
         let rout = AccessTokenRouter.signUp(username: username, password: password, email: email)
         
         AuthorizationManager.loginUserWithRouter(rout)
+            .flatMap { x -> Observable<String?> in
+                
+                guard case .dancer = profileType else {
+                    return .just(x)
+                }
+                
+                return Alamofire.request(AccessTokenRouter.setDancerProfileType)
+                    .rx_Response(EmptyResponse.self)
+                    .map { _ in x }
+            }
             .trackView(viewIndicator: self.indicator)
             .catchError{ [unowned self] (er: Error) -> Observable<String?> in
                 

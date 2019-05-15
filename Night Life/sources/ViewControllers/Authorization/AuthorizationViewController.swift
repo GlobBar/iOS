@@ -58,8 +58,7 @@ class AuthorizationViewController :  UIViewController {
         super.viewDidLoad()
         
         indicator.asDriver().drive(spinner.rxex_animating)
-            
-.disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
         let fb = facebookButton.rx.tap.map{ FacebookAuthenticator() as ExternalAuthenticator }
         let insta = instagramButton.rx.tap.map{ InstagramAuthenticator() as ExternalAuthenticator }

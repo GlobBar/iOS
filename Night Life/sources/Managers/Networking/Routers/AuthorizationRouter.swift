@@ -19,6 +19,10 @@ enum AccessTokenRouter : AuthorizedRouter {
     case signUp(username: String, password: String, email: String)
     
     case logIn(email: String, password: String)
+    
+    
+    case setDancerProfileType
+    
 }
 
 extension AccessTokenRouter {
@@ -59,6 +63,14 @@ extension AccessTokenRouter {
                                                 "password" : password,
                                                 "client_id": GatewayConfiguration.clientId],
                                             headers: ["content-type": "application/x-www-form-urlencoded"])
+            
+        case .setDancerProfileType:
+            
+            return self.authorizedRequest(.post,
+                                          path: "users/profile/",
+                                          encoding: URLEncoding.httpBody,
+                                          body: ["type" : 1])
+            
             
         }
         
