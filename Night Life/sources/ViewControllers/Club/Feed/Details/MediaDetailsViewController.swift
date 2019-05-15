@@ -26,6 +26,8 @@ class MediaDetailsViewController : UIViewController {
     
     @IBOutlet weak var shareButton: UIButton!
     
+    @IBOutlet weak var unlockButton: UIButton!
+    
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,6 +35,13 @@ class MediaDetailsViewController : UIViewController {
 
         if viewModel == nil { assert(false) /*view model must be initialized before using view controller*/  }
     
+        viewModel.lockedSatus
+            .map { !$0 }
+            .drive(unlockButton.rx.isHidden)
+            .disposed(by: bag)
+        
+        unlockButton.setTitle("Unlock for $\( Double(viewModel.media.price) / 100 )".uppercased(), for: .normal)
+        
         viewModel.mediaDriver
             .map { $0.mediaDescription }
             .drive(imageDescriptionLabel.rx.text)
@@ -117,6 +126,10 @@ class MediaDetailsViewController : UIViewController {
 .disposed(by: bag)
     }
     
+    @IBAction func unlockAction(_ sender: Any) {
+        viewModel.unlock()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "show text box" {
             let controller =  segue.destination as! TextBoxController
@@ -126,7 +139,7 @@ class MediaDetailsViewController : UIViewController {
         else if segue.identifier == "embed media player" {
             let controller = segue.destination as! MediaPlayerViewController
             
-            controller.mediaItem.value = viewModel.media
+            controller.mediaItem = viewModel.media
             
             ///FIXME: remove this piece of shi... code
             viewModel.mediaPlayer = controller

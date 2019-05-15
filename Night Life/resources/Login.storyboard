@@ -231,6 +231,9 @@
                                             <outletCollection property="gestureRecognizers" destination="wEb-ni-qHy" appends="YES" id="pHR-gA-o2J"/>
                                         </connections>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_type" translatesAutoresizingMaskIntoConstraints="NO" id="9Bg-RP-9RS">
+                                        <rect key="frame" x="15" y="12.5" width="13" height="13"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -239,8 +242,10 @@
                                     <constraint firstItem="G1w-94-Wbg" firstAttribute="leading" secondItem="HFe-Zu-5Pp" secondAttribute="leading" id="35V-s3-mOZ"/>
                                     <constraint firstItem="gSb-HV-Ijb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HFe-Zu-5Pp" secondAttribute="leading" id="8By-sq-FpW"/>
                                     <constraint firstAttribute="trailing" secondItem="gSb-HV-Ijb" secondAttribute="trailing" id="964-nY-gQd"/>
+                                    <constraint firstItem="9Bg-RP-9RS" firstAttribute="leading" secondItem="G1w-94-Wbg" secondAttribute="leading" constant="15" id="9yM-d7-zaz"/>
                                     <constraint firstAttribute="bottom" secondItem="gSb-HV-Ijb" secondAttribute="bottom" id="WdD-3n-695"/>
                                     <constraint firstItem="G1w-94-Wbg" firstAttribute="height" secondItem="HFe-Zu-5Pp" secondAttribute="height" id="YVe-xE-7fr"/>
+                                    <constraint firstItem="9Bg-RP-9RS" firstAttribute="centerY" secondItem="G1w-94-Wbg" secondAttribute="centerY" id="Yck-ib-US1"/>
                                     <constraint firstAttribute="width" constant="254" id="klH-A0-uAz"/>
                                     <constraint firstItem="G1w-94-Wbg" firstAttribute="top" secondItem="HFe-Zu-5Pp" secondAttribute="top" id="sGX-cM-mrQ"/>
                                     <constraint firstAttribute="bottom" secondItem="G1w-94-Wbg" secondAttribute="bottom" id="sTj-og-f0H"/>
@@ -495,6 +500,7 @@
         <image name="fon_mail" width="258" height="42"/>
         <image name="fon_password" width="258" height="42"/>
         <image name="logo" width="168" height="168"/>
+        <image name="profile_type" width="13" height="13"/>
         <image name="user_name" width="258" height="42"/>
     </resources>
 </document>

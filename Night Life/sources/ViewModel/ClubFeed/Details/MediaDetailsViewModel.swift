@@ -22,6 +22,14 @@ enum PostMediaDetailsAction {
     
 }
 
+extension MediaDetailsViewModel {
+    
+    var lockedSatus: Driver<Bool> {
+        return mediaDriver.map { $0.isLocked }
+    }
+    
+}
+
 struct MediaDetailsViewModel {
     
     let club: Club
@@ -131,6 +139,14 @@ struct MediaDetailsViewModel {
     
     var user: String {
         return UIConfiguration.stringFromDate(media.createdDate!)
+    }
+    
+    func unlock() {
+        
+        var x = media
+        x.isLocked = false
+        x.saveEntity()
+        
     }
     
     func performLikeAction() {

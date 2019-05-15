@@ -20,17 +20,28 @@ class ReviewMediaCollectionCell : UICollectionViewCell {
     
     @IBOutlet weak var playIcon: UIImageView!
     
+    @IBOutlet weak var bluredView: UIVisualEffectView!
+    @IBOutlet weak var lockImageView: UIImageView!
+    
     fileprivate var disposeBag = DisposeBag()
     
     func setMedia( _ media: MediaItem ) {
         
         playIcon.isHidden = media.type != .video
         
-        media.observableEntity()?.asDriver()
-            .map { !$0.isHot }
+        let x = media.observableEntity()?.asDriver()
+        
+        x?.map { !$0.isHot }
             .drive(hotImageView.rx.isHidden)
-            
-.disposed(by: disposeBag)
+            .disposed(by: disposeBag)
+        
+        x?.map { !$0.isLocked }
+            .drive(bluredView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        x?.map { !$0.isLocked }
+            .drive(lockImageView.rx.isHidden)
+            .disposed(by: disposeBag)
         
         Driver.just("")
             .throttle(0.3)///throttle image loading for quick scrolling case
@@ -58,7 +69,7 @@ class ReviewMediaCollectionCell : UICollectionViewCell {
                 
             }
             )
-.disposed(by: disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

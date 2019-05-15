@@ -29,6 +29,9 @@ final class MediaItem : FeedDisplayable, Storable {
     
     fileprivate(set) var type: MediaItemType!
     
+    var price: Int = 0 ///in cents
+    var isLocked: Bool = false
+    
     required init?(map: Map) {
         super.init(map: map)
     }
@@ -47,7 +50,8 @@ final class MediaItem : FeedDisplayable, Storable {
         
         isLikedByCurrentUser <- map["is_liked"]
         
-        
+        price <- map["price"]
+        isLocked <- map["is_locked"]
     }
     
     func setLikeStatusOn() {

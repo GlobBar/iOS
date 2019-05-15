@@ -20,7 +20,7 @@ class MediaPlayerViewController : UIViewController {
     
     fileprivate var downloadTask: Alamofire.DownloadRequest? = nil
     
-    let mediaItem: Variable<MediaItem?> = Variable(nil)
+    var mediaItem: MediaItem? = nil
     let imageURL: Variable<NSURL?> = Variable(nil)
     let image: Variable<UIImage?> = Variable(nil)
     let playableContentURL: Variable<NSURL?> = Variable(nil)
@@ -30,6 +30,9 @@ class MediaPlayerViewController : UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var playbackIcon: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var blurredView: UIVisualEffectView!
+    @IBOutlet weak var lockImageView: UIImageView!
     
     fileprivate let bag = DisposeBag()
     
@@ -65,7 +68,7 @@ class MediaPlayerViewController : UIViewController {
             
             .disposed(by: bag)
         
-        mediaItem.asDriver()
+        Driver.just(mediaItem)
             .filter { $0 != nil }.map { $0! }
             .filter { [unowned self] media in
                 if media.type == .photo {
@@ -131,6 +134,13 @@ class MediaPlayerViewController : UIViewController {
             )
             .disposed(by: bag)
         
+        guard let isLocked = mediaItem?.observableEntity()?.asDriver().map({ !$0.isLocked }) else {
+            fatalError("Can't get observable entity")
+            return
+        }
+        
+        isLocked.drive(blurredView.rx.isHidden).disposed(by: bag)
+        isLocked.drive(lockImageView.rx.isHidden).disposed(by: bag)
     }
     
     override func viewDidLayoutSubviews() {
