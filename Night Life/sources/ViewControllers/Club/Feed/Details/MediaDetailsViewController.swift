@@ -124,6 +124,13 @@ class MediaDetailsViewController : UIViewController {
         viewModel.shareButtonEnabled.asDriver()
             .drive(shareButton.rx.isEnabled)
 .disposed(by: bag)
+        
+        viewModel.indicator.asDriver()
+            .drive(onNext: { [weak self] (loading) in
+                self?.changedAnimationStatusTo(status: loading)
+            })
+            .disposed(by: bag)
+        
     }
     
     @IBAction func unlockAction(_ sender: Any) {

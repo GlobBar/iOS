@@ -129,6 +129,8 @@ struct MediaDetailsViewModel {
         
     }
     
+    let indicator: ViewIndicator = ViewIndicator()
+    
     var mediaURL : String {
         return media.mediaURL
     }
@@ -143,9 +145,21 @@ struct MediaDetailsViewModel {
     
     func unlock() {
         
-        var x = media
-        x.isLocked = false
-        x.saveEntity()
+        let m = media
+        
+        Alamofire.request( UserRouter.topUp(amount: media.price) )
+            .rx_Response(EmptyResponse.self)
+            .flatMapLatest {
+                Alamofire.request( FeedDisplayableRouter.unlock(media: m) )
+                    .rx_Response(EmptyResponse.self)
+            }
+            .trackView(viewIndicator: indicator)
+            .subscribe(onNext: { (_) in
+                let x = m
+                x.isLocked = false
+                x.saveEntity()
+            })
+            .disposed(by: bag)
         
     }
     

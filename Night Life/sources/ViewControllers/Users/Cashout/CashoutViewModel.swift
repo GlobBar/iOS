@@ -22,6 +22,11 @@ extension CashoutViewModel {
     }
  
      */
+    var ballance: Driver<String> {
+        return User.currentUser()!.observableEntity()!
+            .asDriver()
+            .map { "$ \(Double($0.balance) / 100) available" }
+    }
     
 }
 
@@ -54,6 +59,7 @@ struct CashoutViewModel {
     }
     
     let router: CashoutRouter
+    
     fileprivate let indicator: ViewIndicator = ViewIndicator()
     fileprivate let bag = DisposeBag()
     
@@ -63,12 +69,14 @@ extension CashoutViewModel {
     
     func cashout(amount: Int, email: String) {
         
-        guard User.currentUser()!.balance >= amount else {
-            router.owner.presentErrorMessage(error: "Sorry, you only have \(User.currentUser()!.balance) left on your account")
+        let cents = amount * 100
+        
+        guard User.currentUser()!.balance >= cents else {
+            router.owner.presentErrorMessage(error: "Sorry, you only have \(User.currentUser()!.dollars) left on your account")
             return
         }
         
-        Alamofire.request(UserRouter.cashout(amount: amount, email: email))
+        Alamofire.request(UserRouter.cashout(amount: cents, email: email))
             .rx_Response(EmptyResponse.self)
             .trackView(viewIndicator: indicator)
             .silentCatch(handler: router.owner)
@@ -78,7 +86,7 @@ extension CashoutViewModel {
                                                           description: "You will receive a transfer shortly. We will notify you as soon as payment comes out"))
                 
                 var cu = User.currentUser()!
-                cu.balance -= amount
+                cu.balance -= cents
                 cu.saveLocally()
                 
                 return cu

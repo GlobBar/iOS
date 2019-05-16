@@ -518,6 +518,7 @@
                     <connections>
                         <outlet property="avatarImageView" destination="EGA-ZZ-u4a" id="zxQ-Hu-tSX"/>
                         <outlet property="balanceLabel" destination="C5j-8R-yvY" id="G0v-94-M4l"/>
+                        <outlet property="ballancePlaceholder" destination="Vrt-Z5-Ibq" id="PcD-Y9-G2L"/>
                         <outlet property="cashOutButton" destination="5wu-co-n7a" id="3jM-YM-ykK"/>
                         <outlet property="editBarButtonItem" destination="eFc-Rc-rss" id="tYi-HB-aov"/>
                         <outlet property="editPhotoButton" destination="hgl-mD-REm" id="UC2-4I-g1u"/>

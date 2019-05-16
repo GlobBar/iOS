@@ -42,6 +42,11 @@ class CashoutViewController: UIViewController {
          *     .addDisposableTo(rx_disposeBag)
          */
         
+        viewModel.ballance
+            .drive(amountLabel.rx.text)
+            .disposed(by: bag)
+        
+        
     }
     
     let bag = DisposeBag()
@@ -51,6 +56,8 @@ class CashoutViewController: UIViewController {
 extension CashoutViewController {
     
     @IBAction func cashoutAction(_ sender: Any) {
+        viewModel.cashout(amount: Int(amountTextField.text ?? "0")!,
+                          email: emailTextField.text ?? "")
     }
     
     @IBAction func dismissAction(_ sender: Any) {

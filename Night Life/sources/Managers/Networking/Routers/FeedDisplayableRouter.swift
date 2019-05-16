@@ -25,6 +25,8 @@ enum FeedDisplayableRouter: AuthorizedRouter {
     case updateMediaDescription
     
     case deleteMedia(media: MediaItem)
+    
+    case unlock(media: MediaItem)
 }
 
 extension FeedDisplayableRouter {
@@ -103,6 +105,14 @@ extension FeedDisplayableRouter {
                                           path: "report/",
                                           encoding: URLEncoding.default,
                                           body: [ "report_pk" : media.id ])
+            
+        case .unlock(let media):
+            
+            return self.authorizedRequest(.post,
+                                          path: "users/media/donate/",
+                                          encoding: URLEncoding.default,
+                                          body: [ "report_pk" : media.id,
+                                                  "amount": media.price ])
             
             
         }

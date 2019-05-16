@@ -35,6 +35,7 @@ class UserProfileViewController : UIViewController {
     @IBOutlet weak var updateProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var followActionsButton: UIButton!
     
+    @IBOutlet weak var ballancePlaceholder: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     
     @IBOutlet weak var cashOutButton: UIButton!
@@ -176,6 +177,7 @@ class UserProfileViewController : UIViewController {
         tippingJar.isHidden = viewModel.ownProfile
         cashOutButton.isHidden = !viewModel.ownProfile
         balanceLabel.isHidden = !viewModel.ownProfile
+        ballancePlaceholder.isHidden = balanceLabel.isHidden
     }
 
     override func viewDidLayoutSubviews() {
@@ -205,6 +207,7 @@ class UserProfileViewController : UIViewController {
     }
     
     @IBAction func tipAction(_ sender: Any) {
+        viewModel.tip()
         return
 //        viewModel.topUp()
 //        viewModel.donate(amount: 100)

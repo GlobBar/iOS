@@ -134,10 +134,7 @@ class MediaPlayerViewController : UIViewController {
             )
             .disposed(by: bag)
         
-        guard let isLocked = mediaItem?.observableEntity()?.asDriver().map({ !$0.isLocked }) else {
-            fatalError("Can't get observable entity")
-            return
-        }
+        let isLocked = mediaItem?.observableEntity()?.asDriver().map({ !$0.isLocked }) ?? Driver.just(true)
         
         isLocked.drive(blurredView.rx.isHidden).disposed(by: bag)
         isLocked.drive(lockImageView.rx.isHidden).disposed(by: bag)

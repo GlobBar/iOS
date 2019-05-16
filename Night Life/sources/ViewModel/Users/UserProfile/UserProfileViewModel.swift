@@ -65,6 +65,8 @@ class UserProfileViewModel {
     
     fileprivate weak var handler: UIViewController?
     
+    fileprivate let indicator: ViewIndicator = ViewIndicator()
+    
     init(userDescriptor: User, handler: UIViewController) {
         
         self.handler = handler
@@ -123,7 +125,20 @@ class UserProfileViewModel {
             .bind(to: userVariable)
 .disposed(by: bag)
         
+        ///changes inside app on user should be reflected here as well
+        if let x = userDescriptor.observableEntity() {
+            x.asObservable()
+                .bind(to: userVariable)
+                .disposed(by: bag)
+        }
+        
         feedViewModel.dataProvider.value = UserProfileDataProvider(user: userDescriptor)
+        
+        indicator.asDriver()
+            .drive(onNext: { [weak h = handler] (loading) in
+                h?.changedAnimationStatusTo(status: loading)
+            })
+            .disposed(by: bag)
     }
     
     func editPhoto() {
@@ -208,6 +223,28 @@ class UserProfileViewModel {
                             }
         })
 
+    }
+    
+    func tip() {
+        
+        let amount = 100
+        let u = userVariable.value
+            
+        Alamofire.request( UserRouter.topUp(amount: amount) )
+            .rx_Response(EmptyResponse.self)
+            .flatMapLatest {
+                Alamofire.request( UserRouter.donate(user: u, amount: amount) )
+                    .rx_Response(EmptyResponse.self)
+            }
+            .trackView(viewIndicator: indicator)
+            .silentCatch(handler: handler)
+            .subscribe(onNext: { [weak h = handler] (_) in
+                
+                h?.presentMessage(message: DisplayMessage(title: "Success", description: "You've tipped \(u.username) $\(Double(amount) / 100)"))
+                
+            })
+            .disposed(by: bag)
+        
     }
     
     func logoutAction() {
