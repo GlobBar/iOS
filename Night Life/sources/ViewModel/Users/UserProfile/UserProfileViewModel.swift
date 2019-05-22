@@ -7,7 +7,7 @@
 //
 
 import Alamofire
-
+import SwiftyStoreKit
 
 import RxSwift
 import RxCocoa
@@ -229,21 +229,37 @@ class UserProfileViewModel {
         
         let amount = 100
         let u = userVariable.value
+        
+        SwiftyStoreKit.purchaseProduct(PriceTiers.one.rawValue) { (res) in
             
-        Alamofire.request( UserRouter.topUp(amount: amount) )
-            .rx_Response(EmptyResponse.self)
-            .flatMapLatest {
-                Alamofire.request( UserRouter.donate(user: u, amount: amount) )
+            switch res {
+                
+            case .error(let error):
+                print(error)
+                //self.router.owner.presentError(error)
+                
+            case .success(let purchase):
+                
+                Alamofire.request( UserRouter.topUp(amount: amount) )
                     .rx_Response(EmptyResponse.self)
+                    .flatMapLatest {
+                        Alamofire.request( UserRouter.donate(user: u, amount: amount) )
+                            .rx_Response(EmptyResponse.self)
+                    }
+                    .trackView(viewIndicator: self.indicator)
+                    .silentCatch(handler: self.handler)
+                    .subscribe(onNext: { [weak h = self.handler] (_) in
+                        
+                        h?.presentMessage(message: DisplayMessage(title: "Success", description: "You've tipped \(u.username) $\(Double(amount) / 100)"))
+                        
+                    })
+                    .disposed(by: self.bag)
+                
             }
-            .trackView(viewIndicator: indicator)
-            .silentCatch(handler: handler)
-            .subscribe(onNext: { [weak h = handler] (_) in
-                
-                h?.presentMessage(message: DisplayMessage(title: "Success", description: "You've tipped \(u.username) $\(Double(amount) / 100)"))
-                
-            })
-            .disposed(by: bag)
+            
+        }
+        
+        
         
     }
     

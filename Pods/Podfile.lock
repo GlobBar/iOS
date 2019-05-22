@@ -36,6 +36,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - SnapKit (5.0.0)
+  - SwiftyStoreKit (0.15.0)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - RxDataSources
   - RxSwift
   - SnapKit
+  - SwiftyStoreKit
   - SWRevealViewController
 
 SPEC REPOS:
@@ -80,6 +82,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SnapKit
+    - SwiftyStoreKit
     - SWRevealViewController
 
 SPEC CHECKSUMS:
@@ -103,8 +106,9 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 3f03485bdb2e4a534f43ece29d31aaa4b2ffc727
+PODFILE CHECKSUM: d5718a972dc3e53a8ba70454a65b1633cf5c85c5
 
 COCOAPODS: 1.6.1

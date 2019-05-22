@@ -15,6 +15,7 @@ import Alamofire
 import RxSwift
 
 import AlamofireNetworkActivityLogger
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         Fabric.with([Crashlytics.self])
+        SwiftyStoreKit.completeTransactions(completion: { _ in })
+        
         
         NetworkActivityLogger.shared.level = .debug
         NetworkActivityLogger.shared.startLogging()

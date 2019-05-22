@@ -37,6 +37,7 @@ def mutual_pods
     pod 'Kingfisher'
     pod 'DateTools'
     pod 'AlamofireNetworkActivityLogger'
+    pod 'SwiftyStoreKit'
     
 end
     

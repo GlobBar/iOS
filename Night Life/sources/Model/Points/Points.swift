@@ -25,3 +25,9 @@ struct Points : Mappable {
   
 }
 
+
+enum PriceTiers: String {
+    
+    case one = "com.partyzhere.NightLife.basicMedia"
+    
+}

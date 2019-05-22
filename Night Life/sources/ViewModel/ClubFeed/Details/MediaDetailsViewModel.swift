@@ -13,6 +13,7 @@ import RxCocoa
 import Alamofire
 
 import ObjectMapper
+import SwiftyStoreKit
 
 import MobileCoreServices
 
@@ -147,19 +148,35 @@ struct MediaDetailsViewModel {
         
         let m = media
         
-        Alamofire.request( UserRouter.topUp(amount: media.price) )
-            .rx_Response(EmptyResponse.self)
-            .flatMapLatest {
-                Alamofire.request( FeedDisplayableRouter.unlock(media: m) )
+        SwiftyStoreKit.purchaseProduct(PriceTiers.one.rawValue) { (res) in
+            
+            switch res {
+                
+            case .error(let error):
+                print(error)
+                //self.router.owner.presentError(error)
+                
+            case .success(let purchase):
+                
+                Alamofire.request( UserRouter.topUp(amount: m.price) )
                     .rx_Response(EmptyResponse.self)
+                    .flatMapLatest {
+                        Alamofire.request( FeedDisplayableRouter.unlock(media: m) )
+                            .rx_Response(EmptyResponse.self)
+                    }
+                    .trackView(viewIndicator: self.indicator)
+                    .subscribe(onNext: { (_) in
+                        let x = m
+                        x.isLocked = false
+                        x.saveEntity()
+                    })
+                    .disposed(by: self.bag)
+                
             }
-            .trackView(viewIndicator: indicator)
-            .subscribe(onNext: { (_) in
-                let x = m
-                x.isLocked = false
-                x.saveEntity()
-            })
-            .disposed(by: bag)
+            
+        }
+        
+        
         
     }
     
