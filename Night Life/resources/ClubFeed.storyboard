@@ -1350,17 +1350,39 @@
                                                     <segue destination="S9B-Qm-yg1" kind="embed" identifier="embed media player" id="D8p-cf-ehb"/>
                                                 </connections>
                                             </containerView>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="z6b-8k-Zah">
+                                                <rect key="frame" x="12" y="404" width="94" height="29"/>
+                                                <color key="tintColor" red="0.99215686274509807" green="0.63529411764705879" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-rm-6eq">
+                                                <rect key="frame" x="120" y="408" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick unlock price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zc-4n-MXI">
+                                                <rect key="frame" x="12" y="382" width="90" height="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="eKl-Pp-RFf" secondAttribute="trailing" id="2yZ-XU-dWY"/>
+                                            <constraint firstItem="z6b-8k-Zah" firstAttribute="top" secondItem="9zc-4n-MXI" secondAttribute="bottom" constant="8" id="Dg8-qc-2Xg"/>
                                             <constraint firstItem="eKl-Pp-RFf" firstAttribute="top" secondItem="XgR-sd-CtH" secondAttribute="top" id="FiZ-Zt-t2D"/>
+                                            <constraint firstItem="z6b-8k-Zah" firstAttribute="leading" secondItem="9zc-4n-MXI" secondAttribute="leading" id="Npv-K4-F6J"/>
                                             <constraint firstItem="eKl-Pp-RFf" firstAttribute="width" secondItem="XgR-sd-CtH" secondAttribute="width" id="VbN-hn-oEO"/>
                                             <constraint firstItem="H2v-TA-yjy" firstAttribute="top" secondItem="eKl-Pp-RFf" secondAttribute="bottom" constant="16" id="Xu2-3F-8oC"/>
+                                            <constraint firstItem="9zc-4n-MXI" firstAttribute="leading" secondItem="XgR-sd-CtH" secondAttribute="leading" constant="12" id="di9-Mc-utp"/>
                                             <constraint firstItem="BMX-em-gkT" firstAttribute="leading" secondItem="XgR-sd-CtH" secondAttribute="leading" constant="8" id="drP-j3-3Dw"/>
                                             <constraint firstItem="H2v-TA-yjy" firstAttribute="leading" secondItem="XgR-sd-CtH" secondAttribute="leading" constant="12" id="gzz-qZ-aXl"/>
+                                            <constraint firstItem="N3U-rm-6eq" firstAttribute="centerY" secondItem="z6b-8k-Zah" secondAttribute="centerY" id="kAK-iA-cJY"/>
                                             <constraint firstAttribute="trailing" secondItem="BMX-em-gkT" secondAttribute="trailing" constant="8" id="lTV-3u-5Wm"/>
                                             <constraint firstItem="BMX-em-gkT" firstAttribute="top" secondItem="H2v-TA-yjy" secondAttribute="bottom" constant="14" id="ta0-Ad-MLX"/>
+                                            <constraint firstItem="9zc-4n-MXI" firstAttribute="top" secondItem="BMX-em-gkT" secondAttribute="bottom" constant="14" id="xyi-GU-QF8"/>
+                                            <constraint firstItem="N3U-rm-6eq" firstAttribute="leading" secondItem="z6b-8k-Zah" secondAttribute="trailing" constant="14" id="y7H-Kh-YcV"/>
                                             <constraint firstItem="eKl-Pp-RFf" firstAttribute="leading" secondItem="XgR-sd-CtH" secondAttribute="leading" id="zGY-cG-HY0"/>
                                         </constraints>
                                     </view>
@@ -1430,6 +1452,9 @@
                         <outlet property="descriptionTextField" destination="H2v-TA-yjy" id="AcV-r7-bbm"/>
                         <outlet property="progressView" destination="CIG-KT-lIw" id="6ld-Jj-myK"/>
                         <outlet property="scrollView" destination="8yb-oh-cPg" id="shs-xi-oHI"/>
+                        <outlet property="unlockLabel" destination="9zc-4n-MXI" id="CYS-XI-6ZD"/>
+                        <outlet property="unlockStepper" destination="z6b-8k-Zah" id="ayn-TB-R8G"/>
+                        <outlet property="unlockValue" destination="N3U-rm-6eq" id="uuS-c2-zQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhn-EC-iIz" userLabel="First Responder" sceneMemberID="firstResponder"/>

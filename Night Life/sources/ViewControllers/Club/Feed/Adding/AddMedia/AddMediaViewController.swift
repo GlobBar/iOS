@@ -44,6 +44,12 @@
         return picker
     }()
     
+    @IBOutlet weak var unlockLabel: UILabel!
+    @IBOutlet weak var unlockStepper: UIStepper!
+    @IBOutlet weak var unlockValue: UILabel!
+    
+    
+    
     override func loadView() {
         super.loadView()
         
@@ -59,6 +65,17 @@
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let isFan = User.currentUser()?.type == .fan
+        
+        unlockLabel.isHidden = isFan
+        unlockStepper.isHidden = isFan
+        unlockValue.isHidden = isFan
+        
+        unlockStepper.rx.value
+            .map { "\(Int($0))$" }
+            .bind(to: unlockValue.rx.text)
+            .disposed(by: disposeBag)
         
         // comment here to run the app on simulator without crash
         self.present(imagePicker, animated: false, completion: nil)
@@ -122,7 +139,9 @@
             .subscribe(onNext: { [unowned self] description in
                 self.descriptionTextField.isHidden = true
                 
-                self.viewModel.uploadSelectedMedia(description)
+                let price = Int(self.unlockStepper.value) * 100
+                
+                self.viewModel.uploadSelectedMedia(description, price: price)
                 }
             )
             .disposed(by: disposeBag)

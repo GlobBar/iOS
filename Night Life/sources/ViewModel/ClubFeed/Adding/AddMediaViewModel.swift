@@ -40,13 +40,13 @@ struct AddMediaViewModel {
         self.mediaType = type
     }
     
-    func uploadSelectedMedia(_ description: String) {
+    func uploadSelectedMedia(_ description: String, price: Int) {
         
         if let image = selectedImage.value {
-            uploadPhoto(image, description: description)
+            uploadPhoto(image, description: description, price: price)
         }
         else if let videoTuple = selectedVideoURL.value {
-            uploadVideo(videoTuple.0 as URL, thumbnail: videoTuple.1, description: description)
+            uploadVideo(videoTuple.0 as URL, thumbnail: videoTuple.1, description: description, price: price)
         }
         
     }
@@ -78,7 +78,7 @@ struct AddMediaViewModel {
 
 extension AddMediaViewModel {
     
-    fileprivate func uploadPhoto(_ image: UIImage, description: String) {
+    fileprivate func uploadPhoto(_ image: UIImage, description: String, price: Int) {
         
         let fixedImage = image.fixOrientation()
         
@@ -94,6 +94,11 @@ extension AddMediaViewModel {
             formData.append(description.data(using: .utf8)!,
                             withName: "description")
             
+            if price > 0 {
+                formData.append("\(price)".data(using: .utf8)!,
+                                withName: "price")
+            }
+            
         }) { mediaItem in
             
             ImageRetreiver.registerImage(fixedImage, forKey: mediaItem.mediaURL)
@@ -104,7 +109,7 @@ extension AddMediaViewModel {
         
     }
     
-    fileprivate func uploadVideo(_ fileURL: URL, thumbnail: UIImage, description: String) {
+    fileprivate func uploadVideo(_ fileURL: URL, thumbnail: UIImage, description: String, price: Int) {
         
         let fixedThumbnail = thumbnail.fixOrientation()
         
@@ -124,6 +129,11 @@ extension AddMediaViewModel {
                             withName: "place_pk")
             formData.append(description.data(using: .utf8)!,
                             withName: "description")
+            
+            if price > 0 {
+                formData.append("\(price)".data(using: .utf8)!,
+                                withName: "price")
+            }
             
         }) { mediaItem in
             
