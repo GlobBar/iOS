@@ -43,6 +43,8 @@ class ClubFeedViewController : UIViewController {
     @IBOutlet weak var addPhotoBtn: UIButton!
     @IBOutlet weak var addVideoBtn: UIButton!
     
+    @IBOutlet weak var dancerClubButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -224,6 +226,14 @@ class ClubFeedViewController : UIViewController {
             )
 .disposed(by: disposeBag)
         
+        viewModel.dancerClubTitle
+            .drive(dancerClubButton.rx.title(for: .normal) )
+            .disposed(by: disposeBag)
+        
+        let isFan = User.currentUser()?.type == .fan
+        
+        dancerClubButton.isHidden = isFan
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -242,6 +252,9 @@ class ClubFeedViewController : UIViewController {
         }
     }
     
+    @IBAction func dancerTap(_ sender: Any) {
+        viewModel.dancerTap()
+    }
 }
 
 extension ClubFeedViewController {

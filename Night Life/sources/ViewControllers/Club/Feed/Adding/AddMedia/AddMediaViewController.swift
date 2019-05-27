@@ -141,6 +141,20 @@
                 
                 let price = Int(self.unlockStepper.value) * 100
                 
+                if User.currentUser()?.type == .dancer {
+                  
+                    guard let c = User.currentUser()?.dancerClub else {
+                        self.presentErrorMessage(error: "You should select your club prior to uploading any media in your profile")
+                        return
+                    }
+                    
+                    guard c.id == self.viewModel.club.id else {
+                        self.presentErrorMessage(error: "You work at \(c.name) and cannot upload anything to \(self.viewModel.club.name)")
+                        return
+                    }
+                    
+                }
+                
                 self.viewModel.uploadSelectedMedia(description, price: price)
                 }
             )

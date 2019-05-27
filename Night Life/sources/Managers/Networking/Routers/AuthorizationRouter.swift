@@ -23,6 +23,9 @@ enum AccessTokenRouter : AuthorizedRouter {
     
     case setDancerProfileType
     
+    case setDancerClub(club: Club)
+    case getDancerClub
+    
 }
 
 extension AccessTokenRouter {
@@ -70,6 +73,20 @@ extension AccessTokenRouter {
                                           path: "users/profile/",
                                           encoding: URLEncoding.httpBody,
                                           body: ["type" : 1])
+            
+        case .setDancerClub(let club):
+            
+            return self.authorizedRequest(.post,
+                                          path: "places/update_dancer/",
+                                          encoding: URLEncoding.httpBody,
+                                          body: ["place_pk" : club.id])
+            
+        case .getDancerClub:
+            
+            return self.authorizedRequest(.get,
+                                          path: "places/me/",
+                                          encoding: URLEncoding.httpBody,
+                                          body: ["period_filter" : "month"])
             
             
         }

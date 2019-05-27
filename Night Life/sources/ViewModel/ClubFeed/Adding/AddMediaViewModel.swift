@@ -31,7 +31,7 @@ struct AddMediaViewModel {
     
     let bag = DisposeBag()
     
-    fileprivate let club: Club
+    let club: Club
     let mediaType: MediaItemType
     
     

@@ -189,6 +189,7 @@
                         <outlet property="clubLogoImageView" destination="4i4-EH-RGw" id="5mQ-dy-HgC"/>
                         <outlet property="clubNameLabel" destination="ZyV-Wg-bDC" id="sBo-oT-mK0"/>
                         <outlet property="coverPhotoImageView" destination="ZKC-FP-2PI" id="NgR-sD-suZ"/>
+                        <outlet property="dancerClubButton" destination="z52-sF-G42" id="hf5-Ca-mnk"/>
                         <outlet property="filtersSegmentedControl" destination="XAH-Bs-pij" id="sNW-Zo-NbO"/>
                         <outlet property="headerView" destination="rlH-J0-M65" id="gza-dY-Ibq"/>
                         <outlet property="lastCheckinsView" destination="kNj-db-eGW" id="OBp-FS-ChJ"/>
@@ -294,7 +295,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNj-db-eGW" customClass="CircularIconsGroupView" customModule="GlobBar" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="57" width="304" height="37"/>
+                                                    <rect key="frame" x="8" y="57" width="225" height="37"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duxless Club" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyV-Wg-bDC">
                                                     <rect key="frame" x="8" y="8" width="103.5" height="20"/>
@@ -302,18 +303,32 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z52-sF-G42">
+                                                    <rect key="frame" x="233" y="61.5" width="79" height="28"/>
+                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.36078431372549019" blue="0.035294117647058823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="My club"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="dancerTap:" destination="WLu-hQ-Zw0" eventType="touchUpInside" id="Pf0-wx-Boy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ZyV-Wg-bDC" firstAttribute="leading" secondItem="K46-d6-3Ur" secondAttribute="leadingMargin" id="05z-HG-hJs"/>
                                                 <constraint firstItem="kNj-db-eGW" firstAttribute="top" secondItem="eLi-Yl-ZQq" secondAttribute="bottom" constant="4" id="3iJ-b5-bwM"/>
                                                 <constraint firstItem="eHo-Ye-YHG" firstAttribute="top" secondItem="ZyV-Wg-bDC" secondAttribute="bottom" constant="2" id="8a2-Yi-q9D"/>
                                                 <constraint firstItem="kNj-db-eGW" firstAttribute="leading" secondItem="K46-d6-3Ur" secondAttribute="leadingMargin" id="8eu-2j-3Hh"/>
+                                                <constraint firstItem="z52-sF-G42" firstAttribute="centerY" secondItem="kNj-db-eGW" secondAttribute="centerY" id="Ld6-0k-38P"/>
                                                 <constraint firstItem="kNj-db-eGW" firstAttribute="bottom" secondItem="K46-d6-3Ur" secondAttribute="bottomMargin" id="S4c-5a-e5a"/>
                                                 <constraint firstItem="eLi-Yl-ZQq" firstAttribute="leading" secondItem="eHo-Ye-YHG" secondAttribute="leading" id="cKX-ub-8S5"/>
                                                 <constraint firstItem="eLi-Yl-ZQq" firstAttribute="top" secondItem="eHo-Ye-YHG" secondAttribute="bottom" constant="2" id="ciF-1h-HrP"/>
                                                 <constraint firstItem="eHo-Ye-YHG" firstAttribute="leading" secondItem="ZyV-Wg-bDC" secondAttribute="leading" id="f6b-2Y-lOY"/>
                                                 <constraint firstItem="ZyV-Wg-bDC" firstAttribute="top" secondItem="K46-d6-3Ur" secondAttribute="topMargin" id="lXg-OY-QdX"/>
-                                                <constraint firstItem="kNj-db-eGW" firstAttribute="trailing" secondItem="K46-d6-3Ur" secondAttribute="trailingMargin" id="zP2-qt-LGG"/>
                                             </constraints>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4i4-EH-RGw">
@@ -331,9 +346,12 @@
                                         <constraint firstItem="K46-d6-3Ur" firstAttribute="trailing" secondItem="4i4-EH-RGw" secondAttribute="trailing" constant="8" id="FRn-M7-8rC"/>
                                         <constraint firstAttribute="trailing" secondItem="K46-d6-3Ur" secondAttribute="trailing" id="KMm-fe-hB7"/>
                                         <constraint firstAttribute="trailing" secondItem="ZKC-FP-2PI" secondAttribute="trailing" id="KUW-l3-P4T"/>
+                                        <constraint firstItem="z52-sF-G42" firstAttribute="trailing" secondItem="4i4-EH-RGw" secondAttribute="trailing" id="PfZ-Fr-cyW"/>
+                                        <constraint firstItem="kNj-db-eGW" firstAttribute="trailing" secondItem="4i4-EH-RGw" secondAttribute="leading" id="SlA-ET-LfK"/>
                                         <constraint firstAttribute="bottom" secondItem="ZKC-FP-2PI" secondAttribute="bottom" id="bde-tN-qZF"/>
                                         <constraint firstItem="K46-d6-3Ur" firstAttribute="height" secondItem="Xye-gG-gJW" secondAttribute="height" multiplier="0.58" id="eeH-1i-94u"/>
                                         <constraint firstItem="K46-d6-3Ur" firstAttribute="leading" secondItem="Xye-gG-gJW" secondAttribute="leading" id="gQm-m5-XoH"/>
+                                        <constraint firstItem="z52-sF-G42" firstAttribute="leading" secondItem="4i4-EH-RGw" secondAttribute="leading" id="l2J-KX-v7d"/>
                                         <constraint firstItem="ZKC-FP-2PI" firstAttribute="leading" secondItem="Xye-gG-gJW" secondAttribute="leading" id="ntc-Az-Nei"/>
                                         <constraint firstItem="ZKC-FP-2PI" firstAttribute="top" secondItem="Xye-gG-gJW" secondAttribute="top" id="sD9-dh-PXi"/>
                                     </constraints>
@@ -405,7 +423,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="FeedCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gFl-fk-EHt" customClass="FeedCollectionViewController" customModule="GlobBar" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0WE-ao-3cr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="506"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DDd-dn-z0B">
@@ -1488,6 +1506,6 @@
         <image name="playback_icon" width="50" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lE2-Wb-xvR"/>
+        <segue reference="Q5S-Ev-tUa"/>
     </inferredMetricsTieBreakers>
 </document>

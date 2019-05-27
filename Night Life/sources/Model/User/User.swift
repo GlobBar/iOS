@@ -30,6 +30,8 @@ struct User: UserProtocol, Storable {
     
     var type: ProfileType = .fan
     
+    var dancerClub: Club?
+    
     var dollars: String {
         return "$\(Double(balance) / 100) USD"
     }
@@ -56,6 +58,8 @@ struct User: UserProtocol, Storable {
         balance <- map["balance"]
         
         type <- map["type"]
+        
+        dancerClub <- map["dancer_club"]
     }
     
     enum ProfileType: Int {

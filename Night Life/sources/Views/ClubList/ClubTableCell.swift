@@ -169,11 +169,11 @@ class ClubTableCell : UITableViewCell {
         )
 .disposed(by: disposeBag)
         
-#if ADHOC || DEBUG
+//#if ADHOC || DEBUG
         travelButton.isHidden = false
-#else
-        travelButton.isHidden = true
-#endif
+//#else
+//        travelButton.isHidden = true
+//#endif
         
         ///location label
         Observable.combineLatest(clubDriver.asObservable(),

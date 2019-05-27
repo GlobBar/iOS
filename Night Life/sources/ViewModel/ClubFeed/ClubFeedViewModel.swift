@@ -20,6 +20,13 @@ typealias SimpleAction = () -> Void
 
 struct ClubFeedViewModel {
     
+    var dancerClubTitle: Driver<String> {
+        let c = club
+        return User.currentUser()!.observableEntity()!.asDriver()
+            .map { $0.dancerClub == c ? "My club" : "Choose club" }
+            
+    }
+    
     let infoMessage: Variable<MessageTuple?> = Variable(nil)
     let addPhotoAction: Variable<(MessageTuple, yesHandler: SimpleAction, noHandler: SimpleAction)?> = Variable(nil)
     let activeViewModel: Variable<Any?> = Variable(nil)
@@ -195,6 +202,25 @@ extension ClubFeedViewModel {
 .disposed(by: disposeBag)
         
         activeViewModel.value = viewModel
+    }
+    
+    func dancerTap() {
+        
+        let c = club
+        guard club != User.currentUser()?.dancerClub else {
+            return
+        }
+        
+        Alamofire.request(AccessTokenRouter.setDancerClub(club: club))
+            .rx_Response(EmptyResponse.self)
+            .silentCatch()
+            .subscribe(onNext: { _ in
+                var u = User.currentUser()!
+                u.dancerClub = c
+                u.saveLocally()
+            })
+            .disposed(by: disposeBag)
+        
     }
     
 }
