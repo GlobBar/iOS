@@ -144,12 +144,12 @@
                 if User.currentUser()?.type == .dancer {
                   
                     guard let c = User.currentUser()?.dancerClub else {
-                        self.presentErrorMessage(error: "You should select your club prior to uploading any media in your profile")
+                        self.presentErrorMessage(error: "Please select your affiliation club by going to the club’s page and tapping 'Choose Club' first")
                         return
                     }
                     
                     guard c.id == self.viewModel.club.id else {
-                        self.presentErrorMessage(error: "You work at \(c.name) and cannot upload anything to \(self.viewModel.club.name)")
+                        self.presentErrorMessage(error: "You work at \(c.name) and cannot upload to \(self.viewModel.club.name). Please select new club affiliation first")
                         return
                     }
                     
