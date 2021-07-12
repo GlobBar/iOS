@@ -7,16 +7,17 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     babosa (1.0.2)
     cert (1.4.3)
       fastlane_core (>= 0.52.1, < 1.0.0)
       spaceship (>= 0.34.2, < 1.0.0)
     claide (1.0.0)
     colored (1.2)
-    commander (4.4.0)
-      highline (~> 1.7.2)
-    credentials_manager (0.16.1)
+    commander (4.6.0)
+      highline (~> 2.0.0)
+    credentials_manager (0.16.4)
       colored
       commander (>= 4.3.5)
       highline (>= 1.7.1)
@@ -70,7 +71,6 @@ GEM
       xcode-install (~> 2.0.0)
       xcodeproj (>= 0.20, < 2.0.0)
       xcpretty (>= 0.2.3)
-    fastlane-plugin-versioning (0.2.4)
     fastlane_core (0.52.1)
       babosa
       colored
@@ -113,7 +113,7 @@ GEM
       rubyzip (>= 1.1.7)
       terminal-table
       xcpretty (>= 0.2.3)
-    highline (1.7.8)
+    highline (2.0.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.2.4)
@@ -169,6 +169,7 @@ GEM
     produce (1.2.1)
       fastlane_core (>= 0.52.1, < 1.0.0)
       spaceship (>= 0.34.2, < 1.0.0)
+    public_suffix (4.0.6)
     representable (2.3.0)
       uber (~> 0.0.7)
     retriable (2.1.0)
@@ -182,7 +183,7 @@ GEM
       xcpretty-travis-formatter (>= 0.0.3)
     screengrab (0.5.4)
       fastlane_core (>= 0.52.0, < 1.0.0)
-    security (0.1.3)
+    security (0.1.5)
     sigh (1.11.2)
       fastlane_core (>= 0.52.1, < 1.0.0)
       plist (~> 3.1)
@@ -238,7 +239,6 @@ PLATFORMS
 
 DEPENDENCIES
   fastlane
-  fastlane-plugin-versioning
 
 BUNDLED WITH
    1.13.2
