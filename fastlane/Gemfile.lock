@@ -14,9 +14,9 @@ GEM
       spaceship (>= 0.34.2, < 1.0.0)
     claide (1.0.0)
     colored (1.2)
-    commander (4.4.0)
-      highline (~> 1.7.2)
-    credentials_manager (0.16.1)
+    commander (4.6.0)
+      highline (~> 2.0.0)
+    credentials_manager (0.16.4)
       colored
       commander (>= 4.3.5)
       highline (>= 1.7.1)
@@ -70,7 +70,6 @@ GEM
       xcode-install (~> 2.0.0)
       xcodeproj (>= 0.20, < 2.0.0)
       xcpretty (>= 0.2.3)
-    fastlane-plugin-versioning (0.2.4)
     fastlane_core (0.52.1)
       babosa
       colored
@@ -113,7 +112,7 @@ GEM
       rubyzip (>= 1.1.7)
       terminal-table
       xcpretty (>= 0.2.3)
-    highline (1.7.8)
+    highline (2.0.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.2.4)
@@ -182,7 +181,7 @@ GEM
       xcpretty-travis-formatter (>= 0.0.3)
     screengrab (0.5.4)
       fastlane_core (>= 0.52.0, < 1.0.0)
-    security (0.1.3)
+    security (0.1.5)
     sigh (1.11.2)
       fastlane_core (>= 0.52.1, < 1.0.0)
       plist (~> 3.1)
@@ -213,8 +212,8 @@ GEM
       google-api-client (~> 0.9.1)
     terminal-notifier (1.6.3)
     terminal-table (1.4.5)
-    thread_safe (0.3.5)
-    tzinfo (1.2.2)
+    thread_safe (0.3.6)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uber (0.0.15)
     unf (0.1.4)
@@ -238,7 +237,6 @@ PLATFORMS
 
 DEPENDENCIES
   fastlane
-  fastlane-plugin-versioning
 
 BUNDLED WITH
    1.13.2
